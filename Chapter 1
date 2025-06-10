@@ -1,20 +1,20 @@
 #!/bin/bash
 
 # Basic shell info
-# Check what shell you're using and its version
+# It Check what shell you're using and its version
 echo $SHELL
 bash --version
 
 #  Navigation commands
-pwd              # Show current directory
-cd               # Go to home directory
+pwd              # ItShow current directory
+cd               # Goes to home directory
 cd ~             # Same as above
 cd ..            # Move up one level
-cd /             # Go to root directory
+cd /             # Goes to root directory
 
 #  Listing files and folders
-ls               # List contents
-ls -l            # Long listing
+ls               # List contents 
+ls -l            # Long listing 
 ls -a            # Show hidden files
 ls -la           # Combined
 
@@ -27,8 +27,8 @@ rm file1.txt                # Remove file
 rm -r testfolder            # Delete folder recursively
 
 #  Home directory usage
-cd ~            # Go to home
-echo ~          # Print home path
+cd ~            # Goes to home
+echo ~          # Prints home path
 cd ~/Documents  # Go to Documents
 
 # Wildcards
