@@ -1,0 +1,98 @@
+# View the command history
+history
+
+# Repeat the last command
+!!
+
+# Run command number 45 from history
+!45
+
+# Run the last command that started with 'ls'
+!ls
+
+# Run the last command that contained the word 'ping'
+!?ping?
+
+# Fix a typo in the last command: replace 'sl' with 'ls'
+^sl^ls
+
+# Set emacs editing mode
+set -o emacs
+
+# Set vi editing mode
+set -o vi
+
+# Check current Bash options, including editing mode
+set -o
+
+# Move cursor to beginning of line (in emacs mode)
+# Press Ctrl + A
+
+# Move cursor to end of line
+# Press Ctrl + E
+
+# Move one character left/right
+# Ctrl + B (left), Ctrl + F (right)
+
+# Delete the character under the cursor
+# Press Ctrl + D
+
+# Delete the character before the cursor (backspace)
+# Press Ctrl + H
+
+# Delete everything from the cursor to the end of the line
+# Press Ctrl + K
+
+# Delete everything from the beginning of the line to the cursor
+# Press Ctrl + U
+
+# Move forward or backward one word at a time
+# Press Alt + F (forward), Alt + B (backward)
+
+# Delete next or previous word
+# Alt + D (forward), Alt + Backspace (backward)
+
+# Search backward through history incrementally
+# Press Ctrl + R and type a keyword
+
+# Clear the terminal screen
+# Press Ctrl + L
+
+# Swap the last two characters typed
+# Press Ctrl + T
+
+# Paste last deleted text (from Ctrl + U or Ctrl + K)
+# Press Ctrl + Y
+
+# Insert the last argument from the previous command
+# Press Esc + . or Alt + .
+
+# Open the last command in your default editor (vi or nano)
+fc
+
+# Open a specific command from history (e.g., number 20)
+fc 20
+
+# Open a range of commands (from 20 to 23) in your editor
+fc 20 23
+
+# Set nano as your default editor for fc
+export EDITOR=nano
+
+# Create a new binding: bind Ctrl + X then Ctrl + E to 'edit-and-execute-command'
+bind '"\C-x\C-e": edit-and-execute-command'
+
+# List all current keybindings
+bind -P
+
+# Reload keybindings from .inputrc file
+bind -f ~/.inputrc
+
+# Example .inputrc entry to make Ctrl + L run 'clear'
+"\C-l": "clear\n"
+
+# Make tab completion ignore case
+set completion-ignore-case on
+
+# Show all completion matches without pressing Tab twice
+set show-all-if-ambiguous on
