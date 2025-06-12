@@ -1,0 +1,163 @@
+# ----- Startup File Sourcing -----
+
+# Check if ~/.bashrc exists and source it (used in ~/.bash_profile)
+if [ -f ~/.bashrc ]; then
+    source ~/.bashrc
+fi
+
+# ----- Aliases -----
+
+# Create an alias for a long command
+alias ll='ls -lh'
+
+# Create an alias to confirm before removing files
+alias rm='rm -i'
+
+# View all current aliases
+alias
+
+# Remove an alias
+unalias ll
+
+# Use the original command if it's overridden by an alias
+\rm file.txt     # Bypasses the alias
+command ls       # Also bypasses any alias
+
+# ----- Shell Options (set command) -----
+
+# Exit immediately if a command fails
+set -e
+
+# Print commands as they are executed (debugging)
+set -x
+
+# Treat unset variables as an error
+set -u
+
+# Combine multiple options
+set -eux
+
+# Disable an option
+set +x   # Stops showing command traces
+
+# ----- Shell Option Toggler (shopt) -----
+
+# Enable appending to history file instead of overwriting
+shopt -s histappend
+
+# Include dotfiles in glob patterns (like *)
+shopt -s dotglob
+
+# Return nothing instead of unmatched globs (avoids error)
+shopt -s nullglob
+
+# Autocorrect directory names on cd
+shopt -s cdspell
+
+# List all current shell options
+shopt -p
+
+# ----- Shell Variables -----
+
+# Set a variable (no spaces around =)
+name="Shiva"
+
+# Print the variable value
+echo $name
+
+# Case sensitive: different from NAME="Shiva"
+Name="Other"
+
+# ----- Quoting and Escaping -----
+
+# Double quotes allow variable expansion
+echo "Welcome, $name!"
+
+# Single quotes treat content literally
+echo 'Welcome, $name!'
+
+# Use backslash to escape characters
+echo \"Quoted Text\"
+echo It\ is\ Sunday
+
+# ----- Built-In Variables -----
+
+# Last command exit status
+echo $?    # 0 if successful, non-zero if error
+
+# PID of the current shell
+echo $$
+
+# Filename of current script
+echo $0
+
+# Random number
+echo $RANDOM
+
+# Elapsed time in seconds since shell started
+echo $SECONDS
+
+# ----- Exporting Variables -----
+
+# Local variable
+myvar="local"
+
+# Export variable so subprocesses can access it
+export myvar="exported"
+
+# Verify in a subshell
+bash -c 'echo $myvar'
+
+# ----- Subshells and Scope -----
+
+# Define a variable in a subshell
+(VAR="inside"; echo $VAR)
+
+# Try accessing it in parent shell
+echo $VAR    # Will be empty
+
+# ----- Viewing Environment -----
+
+# Show all environment variables
+env
+
+# Show one specific environment variable
+echo $HOME
+
+# Use printenv to see environment only (not shell locals)
+printenv PATH
+
+# ----- Adding Variables Permanently -----
+
+# Append to .bashrc (adds Java path)
+echo 'export JAVA_HOME=/usr/lib/jvm/java-11' >> ~/.bashrc
+
+# Apply the changes immediately
+source ~/.bashrc
+
+# Append another path to PATH variable
+export PATH="$PATH:/opt/mytools/bin"
+
+# ----- type and command -----
+
+# Check how Bash interprets a command
+type ls
+type rm
+type grep
+
+# Run the original command, ignoring any alias
+command ls
+
+# ----- Summary Commands for Practice -----
+
+# Show all shell options
+set -o
+
+# Show defined aliases
+alias
+
+# Show exported variables
+export -p
+
+# Reload shell config without logout
+source ~/.bashrc
