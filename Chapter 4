@@ -1,0 +1,70 @@
+# Function that prints a message
+
+greet() {
+  echo "Hello, $1!"
+}
+
+greet "Shiva"
+
+# Assigning and printing shell variables
+
+username="student"
+echo "Current user is: $username"
+
+# Demonstrating positional parameters
+
+echo "Script name: $0"
+echo "First argument: $1"
+echo "Second argument: $2"
+Run as: ./script.sh apple banana
+
+# Using local variables inside functions
+
+show_name() {
+  local name="Alice"
+  echo "Name inside function: $name"
+}
+
+show_name
+echo "Name outside function: $name"  # This will be empty
+
+# Comparing "$@" and "$*"
+
+echo 'Using "$@":'
+for arg in "$@"; do
+  echo "$arg"
+done
+
+echo 'Using "$*":'
+for arg in "$*"; do
+  echo "$arg"
+done
+
+
+# Working with strings
+
+name="BashShell"
+echo "Length: ${#name}"                  # Length of string
+echo "Substring: ${name:0:4}"            # Substring
+echo "Replace: ${name/Shell/Scripting}"  # Replace part of string
+
+# Pattern matching using string operators
+
+file="report2025.pdf"
+
+if [[ $file == *.pdf ]]; then
+  echo "It's a PDF file."
+fi
+
+# Capturing output of a command
+
+current_date=$(date)
+echo "Today's date is: $current_date"
+
+# Using pushd and popd
+
+echo "Current dir: $(pwd)"
+pushd /tmp > /dev/null
+echo "After pushd: $(pwd)"
+popd > /dev/null
+echo "After popd: $(pwd)"
